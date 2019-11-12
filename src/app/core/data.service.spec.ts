@@ -10,7 +10,7 @@ describe('DataService Tests', () => {
   let dataService: DataService;
   let httpTestingController: HttpTestingController;
 
-  let testBooks: Book[] = [
+  const testBooks: Book[] = [
     { bookID: 1, title: 'Goodnight Moon', author: 'Margaret Wise Brown', publicationYear: 1953 },
     { bookID: 2, title: 'Winnie-the-Pooh', author: 'A. A. Milne', publicationYear: 1926 },
     { bookID: 3, title: 'The Hobbit', author: 'J. R. R. Tolkien', publicationYear: 1937 }
@@ -37,7 +37,7 @@ describe('DataService Tests', () => {
         expect(data.length).toBe(3);
       });
 
-    let booksRequest: TestRequest = httpTestingController.expectOne('/api/books');
+    const booksRequest: TestRequest = httpTestingController.expectOne('/api/books');
     expect(booksRequest.request.method).toEqual('GET');
 
     booksRequest.flush(testBooks);
@@ -54,7 +54,7 @@ describe('DataService Tests', () => {
         }
       );
 
-    let booksRequest: TestRequest = httpTestingController.expectOne('/api/books');
+    const booksRequest: TestRequest = httpTestingController.expectOne('/api/books');
 
     booksRequest.flush('error', {
       status: 500,
